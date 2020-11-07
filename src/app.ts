@@ -1,6 +1,7 @@
 import MusicPlayer from './musicPlayer';
+import MusicFileManager from './musicFileManger';
 
 (() => {
-  const musicPlayer = new MusicPlayer('./02. APETITAN.flac');
-  console.log(musicPlayer);
+  const musicPlayer = new MusicPlayer();
+  const musicFileManger = new MusicFileManager(musicPlayer);
 })();

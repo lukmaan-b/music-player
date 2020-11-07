@@ -1,12 +1,10 @@
 export default class MusicPlayer {
-  audioPath: string;
   audioElm!: HTMLAudioElement;
   playbackBtn!: { htmlElm: HTMLButtonElement; isPaused: boolean };
   playbackIcon: HTMLSpanElement;
   playbackIconType: 'pause' | 'play_arrow';
 
-  constructor(audio: string) {
-    this.audioPath = audio;
+  constructor() {
     this.playbackBtn = {
       htmlElm: document.getElementById('playback-button') as HTMLButtonElement,
       isPaused: true,
@@ -22,7 +20,7 @@ export default class MusicPlayer {
 
   createAudioHtml() {
     this.audioElm = document.createElement('audio');
-    this.audioElm.src = this.audioPath;
+    this.audioElm.volume = 0.5;
     document.getElementById('audio-container')!.append(this.audioElm);
   }
 
@@ -52,5 +50,9 @@ export default class MusicPlayer {
         this.playbackIcon.textContent = this.playbackIconType;
       }
     });
+  }
+
+  setFilePath(filePath: string) {
+    this.audioElm.src = filePath;
   }
 }
