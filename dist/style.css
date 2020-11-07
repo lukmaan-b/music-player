@@ -11,6 +11,7 @@ body {
 
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -25,6 +26,8 @@ body {
   border-radius: 30px;
   box-shadow: rgba(17, 21, 34, 0.25) 5px 5px 15px,
     rgba(42, 52, 86, 0.5) -5px -5px 15px;
+  margin-bottom: 4rem;
+  transition: width 500ms;
 }
 
 #playback-button {
@@ -37,6 +40,7 @@ body {
 .material-icons {
   font-size: 5rem;
   color: #ffffff;
+  transition: font-size 500ms;
 }
 
 button:focus,
@@ -44,7 +48,8 @@ button:active {
   outline: none;
 }
 
-button {
+button,
+label {
   background: none;
   border: none;
   border-radius: 50%;
@@ -52,10 +57,31 @@ button {
   transition: background-color 300ms;
 }
 
-button:hover {
+button:hover,
+label:hover {
   background-color: hsl(226, 35%, 18%);
 }
 
 button:active {
   background-color: hsl(226, 35%, 13%);
+}
+
+input {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #audio-container {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: rgba(17, 21, 34, 0.4) 0px 5px 15px;
+    width: 100%;
+  }
+  .material-icons {
+    font-size: 3rem;
+  }
 }

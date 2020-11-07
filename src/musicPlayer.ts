@@ -14,8 +14,8 @@ export default class MusicPlayer {
     )! as HTMLSpanElement;
     this.playbackIconType = 'play_arrow';
     this.playbackIcon.textContent = this.playbackIconType;
-    this.btnEventListener();
     this.createAudioHtml();
+    this.setEventListeners();
   }
 
   createAudioHtml() {
@@ -36,7 +36,7 @@ export default class MusicPlayer {
     this.audioElm.src = newAudioPath;
   }
 
-  btnEventListener() {
+  setEventListeners() {
     this.playbackBtn.htmlElm.addEventListener('click', () => {
       if (this.playbackBtn.isPaused) {
         this.playbackBtn.isPaused = false;
@@ -49,6 +49,12 @@ export default class MusicPlayer {
         this.playbackIconType = 'play_arrow';
         this.playbackIcon.textContent = this.playbackIconType;
       }
+    });
+    this.audioElm.addEventListener('ended', () => {
+      console.log('s');
+      this.audioElm.currentTime = 0;
+      this.playbackBtn.isPaused = true;
+      this.playbackIcon.textContent = this.playbackIconType;
     });
   }
 
