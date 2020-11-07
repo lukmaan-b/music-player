@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #202842;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#audio-container {
+  background-color: #202842;
+  width: 500px;
+  min-height: 400px;
+  height: 700px;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: rgba(17, 21, 34, 0.25) 5px 5px 15px,
+    rgba(42, 52, 86, 0.5) -5px -5px 15px;
+}
+
+#playback-button {
+  position: absolute;
+  bottom: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.material-icons {
+  font-size: 5rem;
+  color: #ffffff;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  padding: 1rem;
+  transition: background-color 300ms;
+}
+
+button:hover {
+  background-color: hsl(226, 35%, 18%);
+}
+
+button:active {
+  background-color: hsl(226, 35%, 13%);
+}
